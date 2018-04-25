@@ -18,7 +18,7 @@ public class Topic {
 	
 	@Override
 	public int hashCode() {
-		return this.topicID+this.topicName;
+		return this.topicID;
 	}
 	
 	@Override
