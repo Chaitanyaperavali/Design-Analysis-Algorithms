@@ -2,17 +2,17 @@ package edu.umkc.da;
 
 public class Topic {
 	private int topicID;
-	private int topicName;
+	private String topicName;
 	public int getTopicID() {
 		return topicID;
 	}
 	public void setTopicID(int topicID) {
 		this.topicID = topicID;
 	}
-	public int getTopicName() {
+	public String getTopicName() {
 		return topicName;
 	}
-	public void setTopicName(int topicName) {
+	public void setTopicName(String topicName) {
 		this.topicName = topicName;
 	}
 	
