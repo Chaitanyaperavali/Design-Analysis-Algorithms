@@ -1,5 +1,6 @@
 package edu.umkc.da;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -15,6 +16,7 @@ public class Mapping {
 		Utility utility = new Utility();
 		this.courses = utility.loadCourses();
 		this.professors = utility.loadProfessors();
+		this.courseProfessorMapping = new HashMap<>();
 	}
 	
 	//Compute Score
