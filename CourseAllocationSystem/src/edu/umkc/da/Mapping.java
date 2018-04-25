@@ -43,6 +43,8 @@ public class Mapping {
 					oldScore = newScore;
 				}
 			}
+			//comment below line after testing
+			System.out.println(course.getCourseID()+" : "+matchingProfessorId+" : "+oldScore);
 			courseProfessorMapping.put(course.getCourseID(), matchingProfessorId);
 		}
 		
