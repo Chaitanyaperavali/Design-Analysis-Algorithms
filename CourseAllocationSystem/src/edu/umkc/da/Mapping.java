@@ -1,5 +1,6 @@
 package edu.umkc.da;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -15,14 +16,45 @@ public class Mapping {
 		Utility utility = new Utility();
 		this.courses = utility.loadCourses();
 		this.professors = utility.loadProfessors();
+		this.courseProfessorMapping = new HashMap<>();
 	}
 	
 	//Compute Score
-	public void calculateScoreOfProfessor(){
-		
+	public double calculateScoreOfProfessor(Professor professor,Course course){
+		double score = 0.0;
+		for (Topic topic : professor.getTopicExpertise().keySet()) {
+			if(course.getTopics().containsKey(topic)){
+				score = score + professor.getTopicExpertise().get(topic) * course.getTopics().get(topic);
+			}
+		}
+		return score;
 	}
+	
 	
 	public void mapCourseToProfessor(){
 		
+		for (Course course : courses) {
+			double oldScore = 0.0;
+			int matchingProfessorId = -1;
+			for (Professor professor : professors) {
+				double newScore = calculateScoreOfProfessor(professor, course);
+				if(newScore > oldScore){
+					matchingProfessorId = professor.getProfessorID();
+					oldScore = newScore;
+				}
+			}
+			//comment below line after testing
+			System.out.println(course.getCourseID()+" : "+matchingProfessorId+" : "+oldScore);
+			courseProfessorMapping.put(course.getCourseID(), matchingProfessorId);
+		}
+		
+	}
+	
+	public void getAllocations(){
+		mapCourseToProfessor();
+		System.out.println("Professor           :            Course");
+		for (Course course : courses) {
+			System.out.println(courseProfessorMapping.get(course.getCourseID())+" -> "+course.getCourseName());
+		}
 	}
 }

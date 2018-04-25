@@ -16,5 +16,16 @@ public class Topic {
 		this.topicName = topicName;
 	}
 	
-
+	@Override
+	public int hashCode() {
+		return this.topicID+this.topicName;
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if(((Topic)obj).getTopicID() == this.topicID){
+			return true;
+		}
+		return false;
+	}
 }
