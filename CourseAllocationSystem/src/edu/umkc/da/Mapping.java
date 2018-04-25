@@ -18,11 +18,39 @@ public class Mapping {
 	}
 	
 	//Compute Score
-	public void calculateScoreOfProfessor(){
-		
+	public double calculateScoreOfProfessor(Professor professor,Course course){
+		double score = 0.0;
+		for (Topic topic : professor.getTopicExpertise().keySet()) {
+			if(course.getTopics().containsKey(topic)){
+				score = score + professor.getTopicExpertise().get(topic) * course.getTopics().get(topic);
+			}
+		}
+		return score;
 	}
+	
 	
 	public void mapCourseToProfessor(){
 		
+		for (Course course : courses) {
+			double oldScore = 0.0;
+			int matchingProfessorId = -1;
+			for (Professor professor : professors) {
+				double newScore = calculateScoreOfProfessor(professor, course);
+				if(newScore > oldScore){
+					matchingProfessorId = professor.getProfessorID();
+					oldScore = newScore;
+				}
+			}
+			courseProfessorMapping.put(course.getCourseID(), matchingProfessorId);
+		}
+		
+	}
+	
+	public void getAllocations(){
+		mapCourseToProfessor();
+		System.out.println("Professor           :            Course");
+		for (Course course : courses) {
+			System.out.println(courseProfessorMapping.get(course.getCourseID())+" -> "+course.getCourseName());
+		}
 	}
 }
