@@ -3,9 +3,11 @@ package edu.umkc.da;
 import java.util.Map;
 
 public class Course {
+	
 	private int courseID;
 	private String courseName;
 	private Map<Topic,Double> courseTopics;
+	
 	public int getCourseID() {
 		return courseID;
 	}

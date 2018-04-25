@@ -8,6 +8,7 @@ public class Professor {
 	private int professorID;
 	private String name;
 	private Map<Topic, Integer> topicExpertise;
+	
 	public int getProfessorID() {
 		return professorID;
 	}
