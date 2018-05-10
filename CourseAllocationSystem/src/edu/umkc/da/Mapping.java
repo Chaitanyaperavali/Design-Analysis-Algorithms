@@ -1,26 +1,32 @@
 package edu.umkc.da;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 //Allocations happen in this class.
 public class Mapping {
 	
-	private List<Course> courses;
-	private List<Professor> professors;
-	private Map<Integer,Integer> courseProfessorMapping;
+	private Course[] courses;
+	private Professor[] professors;
+	private double[][] costMatrix;
+	private int[] finalMapping;
 	
 	
 	public Mapping() {
 		Utility utility = new Utility();
-		this.courses = utility.loadCourses();
-		this.professors = utility.loadProfessors();
-		this.courseProfessorMapping = new HashMap<>();
+		
+		List<Course> crs= utility.loadCourses();
+		this.courses = new Course[crs.size()];
+		this.courses = crs.toArray(this.courses);
+		
+		List<Professor> prcs = utility.loadProfessors();
+		this.professors = new Professor[prcs.size()];
+		this.professors = prcs.toArray(this.professors);
+		
+		this.costMatrix = new double[this.courses.length][this.professors.length];
 	}
 	
 	//Compute Score
-	public double calculateScoreOfProfessor(Professor professor,Course course){
+	public double calculateScoreOfProfessor(Course course,Professor professor){
 		double score = 0.0;
 		for (Topic topic : professor.getTopicExpertise().keySet()) {
 			if(course.getTopics().containsKey(topic)){
@@ -32,27 +38,26 @@ public class Mapping {
 	
 	
 	public void mapCourseToProfessor(){
-		//sort professors before allocating courses based on matching scores.
-		for (Professor professor : professors) {
-			double oldScore = 0.0;
-			int matchingCourseId = -1;
-			String name = null;
-			for (Course course : courses) {
-				if(!courseProfessorMapping.containsKey(course.getCourseID())){
-					double newScore = calculateScoreOfProfessor(professor, course);
-					//System.out.println(professor.getName()+"->"+course.getCourseName()+"->"+newScore);
-					if(newScore > oldScore){
-						name = course.getCourseName();
-						matchingCourseId = course.getCourseID();
-						oldScore = newScore;
-					}
-				}
+		double[][] dupCostMatrix = new double[this.courses.length][this.professors.length];
+		for (int i = 0; i < courses.length; i++) {
+			for(int j = 0;j < professors.length;j++){
+				costMatrix[i][j] = calculateScoreOfProfessor(courses[i],professors[j]);
+				dupCostMatrix[i][j] = 1.0 - costMatrix[i][j];
 			}
-			System.out.println();
-			//comment below line after testing
-			System.out.println(professor.getName()+" : "+name+" : "+oldScore);
-			courseProfessorMapping.put(matchingCourseId, professor.getProfessorID());
 		}
 		
+		//duplicate matix where each cell is {maxPossibleValue - currentValue}
+		HungImp hungImp = new HungImp(dupCostMatrix);
+		//index - Course, value - Professor
+		finalMapping = hungImp.execute();
+	}
+	
+	public void getMappings(){
+		//calling this method updates final mappings.
+		mapCourseToProfessor();
+		System.out.println("Course                Professor             Score");
+		for(int i=0;i<finalMapping.length;i++){
+			System.out.println(courses[i].getCourseName() + " -- " + professors[finalMapping[i]].getName() + " -- " + costMatrix[i][finalMapping[i]]);
+		}
 	}
 }
