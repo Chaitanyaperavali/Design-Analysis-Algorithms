@@ -1,0 +1,19 @@
+,Steve Smith,John Ely,Rahul Wily,Mark Zuck,Dave Min,Mike Ebbos,Shikar Dawan,Manish Malhotra,Sanjeev Saxena,Patrix Joe,Peter Parker,Kevin Petersen,Kane Williamson,Steve Smith,S Watson,D Warner,Sachin Singh,Lok Advani
+Advanced Software Engineering,0.48,0.76,0.4,0.32,0.08,0.16,0.32,0.24,0.4,0.32,0.48,0.36,0.24,0.6,0.12,0.36,0.24,0.48
+Design and Analysis of Algorithms,0.54,0.88,0.28,0.14,0,0,0,0,0,0,0.24,0.18,0.4,0.86,0.34,0.6,0.82,0.8
+Network Architecture,0,0,0.2,0.8,0.4,0.6,1,0.2,0.8,0.4,0.2,0.4,0,0,0,0,0,0
+Software Methods and Tools,0.28,0.44,0.2,0.16,0.28,0.24,0.24,0.52,0.52,0.4,0.4,0.4,0.56,0.64,0.08,0.24,0.16,0.32
+Parallel Algorithms,0.44,0.8,0.44,0.34,0.12,0.3,0,0,0,0,0.16,0.12,0.28,0.6,0.54,0.6,0.7,0.8
+Principles og Big Data,0.26,0.42,0.12,0.06,0,0,0.4,0.3,0.4,0.1,0.66,0.52,0.7,0.64,0.26,0.7,0.38,0.4
+Knowledge Discovery and Management,0.16,0.24,0,0,0,0,0.48,0.36,0.48,0.12,0.92,0.72,0.76,0.64,0.2,0.72,0.16,0.32
+Deep Learning,0.04,0.12,0.16,0.16,0.2,0.28,0.52,0.56,0.64,0.24,0.64,0.56,0.8,0.36,0.32,0.6,0.08,0.16
+Big Data Analytics and Applications,0.3,0.48,0.12,0.06,0,0,0.32,0.24,0.32,0.08,0.64,0.5,0.64,0.7,0.26,0.68,0.42,0.48
+Java Programming with Applications,0.35,0.55,0.25,0.2,0.2,0.2,0.25,0.4,0.45,0.35,0.45,0.4,0.45,0.65,0.1,0.3,0.2,0.4
+Cloud Computing,0,0,0,0,0,0,0.8,0.6,0,0,0,0,0,0,0,0,0,0
+Principles of Big Data Management,0,0,0.3,0.24,0.7,0.42,0,0,0,0,0,0,0,0,0,0,0,0
+Formal Software Specification,0.8,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Software Architecture and Design,0.6,0.8,0,0,0,0,0,0,0,0,0.4,0.3,0.2,0.5,0.1,0.3,0.2,0.4
+Introduction to Statistical Learning,0.08,0.24,0.32,0.32,0.16,0.4,0,0,0,0,0,0,0,0,0.4,0.24,0.64,0.68
+Information Security and Assurance,0.16,0.2,0.066,0.264,0.354,0.346,0.484,0.496,0.56,0.354,0.14,0.28,0.37,0.222,0,0,0,0
+Image Analysis and Retrieval,0.36,0.76,0.64,0.56,0.24,0.6,0,0,0,0,0,0,0.16,0.32,0.76,0.6,0.64,0.8
+Supervised Learning,0.12,0.18,0,0,0,0,0,0,0,0,0.24,0.18,0.12,0.3,0.06,0.18,0.68,0.66
