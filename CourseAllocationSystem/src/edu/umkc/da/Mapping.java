@@ -1,6 +1,5 @@
 package edu.umkc.da;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -11,8 +10,6 @@ public class Mapping {
 	private List<Course> courses;
 	private List<Professor> professors;
 	private Map<Integer,Integer> courseProfessorMapping;
-	//public Map<String, Map<String,Double>> mappingList;
-	public List<CourseList> courseMapping;
 	
 	
 	public Mapping() {
@@ -20,7 +17,6 @@ public class Mapping {
 		this.courses = utility.loadCourses();
 		this.professors = utility.loadProfessors();
 		this.courseProfessorMapping = new HashMap<>();
-		this.courseMapping = new ArrayList<>();
 	}
 	
 	//Compute Score
@@ -36,7 +32,7 @@ public class Mapping {
 	
 	
 	public void mapCourseToProfessor(){
-		//sort professors before allocating courses based on matching scores.		
+		//sort professors before allocating courses based on matching scores.
 		for (Professor professor : professors) {
 			double oldScore = 0.0;
 			int matchingCourseId = -1;
@@ -59,34 +55,4 @@ public class Mapping {
 		}
 		
 	}
-	
-	public void courseAndProfessor() {
-		
-		for (Course course : courses) {
-			
-			String name = null;
-			System.out.println();
-			for (Professor professor : professors) {
-				{
-					double score = calculateScoreOfProfessor(professor, course);
-					System.out.println(course.getCourseName()+" : "+professor.getName()+" : "+score);
-					CourseList list = new CourseList();
-					list.setCourseName(course.getCourseName());
-					list.setProfessorName(professor.getName());
-					list.setScore(score);
-					courseMapping.add(list);
-					
-				}
-			}
-			
-			//comment below line after testing
-			//System.out.println(professor.getName()+" : "+name+" : "+oldScore);
-			//courseProfessorMapping.put(matchingCourseId, professor.getProfessorID());
-		}
-		//System.out.println(courseMapping);
-		for(CourseList courseList : courseMapping) {
-			
-		}
-	}
-	
 }

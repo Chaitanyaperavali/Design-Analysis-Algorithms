@@ -5,6 +5,5 @@ public class App {
 	public static void main(String[] args) {
 		Mapping mapping = new Mapping();
 		mapping.mapCourseToProfessor();
-		mapping.courseAndProfessor();
 	}
 }
