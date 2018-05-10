@@ -21,7 +21,7 @@ public class Utility {
 		List<Course> l = new ArrayList<>();
 		// create a map of course id and course object for each course
 		try (BufferedReader br = new BufferedReader(new FileReader(
-				"E:/Code/WS1/Design-Analysis-Algorithms/CourseAllocationSystem/src/edu/umkc/da/data/Courses.csv"))) {
+				"C:\\Users\\kalyan\\Documents\\GitHub\\Design-Analysis-Algorithms\\CourseAllocationSystem\\src\\edu\\umkc\\da\\data\\Courses.csv"))) {
 			String headerLine = br.readLine();
 			while ((s = br.readLine()) != null) {
 				String[] s1 = s.split("\\,");
@@ -46,7 +46,7 @@ public class Utility {
 		// create a list of profess id and professor object for each course
 		List<Professor> l = new ArrayList<>();
 		try (BufferedReader br = new BufferedReader(new FileReader(
-				"E:/Code/WS1/Design-Analysis-Algorithms/CourseAllocationSystem/src/edu/umkc/da/data/Professors.csv"))) {
+				"C:/Users/kalyan/Documents/GitHub/Design-Analysis-Algorithms/CourseAllocationSystem/src/edu/umkc/da/data/Professors.csv"))) {
 			String headerLine = br.readLine();
 			while ((s = br.readLine()) != null) {
 				String[] s1 = s.split("\\,");
@@ -72,7 +72,7 @@ public class Utility {
 		// create a map of topic and weight in % for each course.
 		// Hint - iterate over list of courses and perform operation for each course.
 		try (BufferedReader br1 = new BufferedReader(new FileReader(
-				"E:/Code/WS1/Design-Analysis-Algorithms/CourseAllocationSystem/src/edu/umkc/da/data/CourseTopics.csv"))) {
+				"C:/Users/kalyan/Documents/GitHub/Design-Analysis-Algorithms/CourseAllocationSystem/src/edu/umkc/da/data/CourseTopics.csv"))) {
 			String headerLine1 = br1.readLine();
 			while ((s = br1.readLine()) != null) {
 				String[] s1 = s.split("\\,");
@@ -80,7 +80,7 @@ public class Utility {
 					Topic t = new Topic();
 					t.setTopicID(Integer.parseInt(s1[1]));
 					try (BufferedReader br = new BufferedReader(new FileReader(
-							"E:/Code/WS1/Design-Analysis-Algorithms/CourseAllocationSystem/src/edu/umkc/da/data/Topics.csv"))) {
+							"C:/Users/kalyan/Documents/GitHub/Design-Analysis-Algorithms/CourseAllocationSystem/src/edu/umkc/da/data/Topics.csv"))) {
 						String headerLine = br.readLine();
 						while ((s2 = br.readLine()) != null) {
 							String[] s3 = s2.split("\\,");
@@ -108,7 +108,7 @@ public class Utility {
 		// create a map of topic and weight in % for each course.
 		// Hint - iterate over list of courses and perform operation for each course.
 		try (BufferedReader br1 = new BufferedReader(new FileReader(
-				"E:/Code/WS1/Design-Analysis-Algorithms/CourseAllocationSystem/src/edu/umkc/da/data/Expertise.csv"))) {
+				"C:/Users/kalyan/Documents/GitHub/Design-Analysis-Algorithms/CourseAllocationSystem/src/edu/umkc/da/data/Expertise.csv"))) {
 			String headerLine1 = br1.readLine();
 			while ((s = br1.readLine()) != null) {
 				String[] s1 = s.split("\\,");
@@ -116,7 +116,7 @@ public class Utility {
 					Topic t = new Topic();
 					t.setTopicID(Integer.parseInt(s1[0]));
 					try (BufferedReader br = new BufferedReader(new FileReader(
-							"E:/Code/WS1/Design-Analysis-Algorithms/CourseAllocationSystem/src/edu/umkc/da/data/Topics.csv"))) {
+							"C:/Users/kalyan/Documents/GitHub/Design-Analysis-Algorithms/CourseAllocationSystem/src/edu/umkc/da/data/Topics.csv"))) {
 						String headerLine = br.readLine();
 						while ((s2 = br.readLine()) != null) {
 							String[] s3 = s2.split("\\,");
